@@ -10,7 +10,9 @@ def get_spark_session(app_name="f1-processing"):
             "org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.1,"
             "org.apache.iceberg:iceberg-spark-runtime-3.5_2.12:1.10.1,"
             "org.apache.hadoop:hadoop-aws:3.3.4,"
-            "com.amazonaws:aws-java-sdk-bundle:1.12.262")
+            "com.amazonaws:aws-java-sdk-bundle:1.12.262,"
+	    "net.snowflake:spark-snowflake_2.12:3.1.7,"
+	    "net.snowflake:snowflake-jdbc:3.28.0")
         .config("spark.sql.extensions", "org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions")
         .config("spark.sql.catalog.local", "org.apache.iceberg.spark.SparkCatalog")
         .config("spark.sql.catalog.local.type", "hadoop")
