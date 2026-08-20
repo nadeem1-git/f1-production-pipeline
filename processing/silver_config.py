@@ -1,6 +1,7 @@
 # entity -> columns that must not be null for a record to be considered valid
 SILVER_CONFIG = {
     "laps":         {"required": ["session_key", "driver_number", "lap_number", "date_start"]},
+    "sessions": {"required": ["session_key", "session_type"]},
     "meetings":     {"required": ["meeting_key"]},
     "drivers":      {"required": ["session_key", "driver_number"]},
     "positions":    {"required": ["session_key", "driver_number", "date"]},

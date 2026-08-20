@@ -4,7 +4,7 @@ from pyspark.sql.types import ArrayType
 from spark_utils import get_spark_session
 from snowflake_config import SNOWFLAKE_CONFIG
 
-TABLES = ["laps", "meetings", "positions", "pit_stops", "stints", "weather", "race_control", "team_radio"]
+TABLES = ["laps", "meetings", "positions", "pit_stops", "stints", "weather", "race_control", "team_radio", "sessions"]
 
 def flatten_arrays(df):
     for field in df.schema.fields:
