@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: raw
+    database: F1_DB
+    schema: GOLD
+    tables:
+      - name: SESSIONS
+      - name: MEETINGS
+      - name: DRIVERS
+      - name: LAPS
+      - name: POSITIONS
+      - name: PIT_STOPS
+      - name: STINTS
+      - name: WEATHER
+      - name: RACE_CONTROL
+      - name: TEAM_RADIO
