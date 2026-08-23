@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: dim_driver
+    description: One row per driver, most recent team info
+    columns:
+      - name: driver_number
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_session
+    description: One row per F1 session (practice, qualifying, race)
+    columns:
+      - name: session_key
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_laps
+    description: Lap-level performance data
+    columns:
+      - name: session_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_session')
+              field: session_key
+      - name: driver_number
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_driver')
+              field: driver_number
+
+  - name: fact_pit_stops
+    description: Pit stop events
+    columns:
+      - name: session_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_session')
+              field: session_key
+      - name: driver_number
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_driver')
+              field: driver_number
